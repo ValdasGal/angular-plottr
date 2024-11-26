@@ -113,6 +113,10 @@ export class PlottrLayoutComponent {
     ]);
   }
 
+  moveChapters(chapters: Chapter[]): void {
+    this.chapters.set(chapters);
+  }
+
   addPlotLine(title: string, scenes: Scenes = {}): void {
     this.plotLines.set([
       ...this.plotLines(),

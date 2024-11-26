@@ -15,6 +15,10 @@
     padding: plottr.$element-padding;
   }
 
+  .plottr-chapters {
+    display: flex;
+  }
+
   .plottr-add-chapter {
     flex: 0 0 plottr.$chapter-width;
     padding: plottr.$element-padding;
