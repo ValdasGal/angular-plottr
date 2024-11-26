@@ -9,6 +9,7 @@
   <app-plottr-plotlines
     [plotLines]="plotLines()"
     [chapters]="chapters()"
+    (changePlotlineTitle)="changePlotlineTitle($event)"
     (addScene)="addSceneToPlotLine($event)"
     (addPlotLine)="addPlotLine($event)"
   ></app-plottr-plotlines>

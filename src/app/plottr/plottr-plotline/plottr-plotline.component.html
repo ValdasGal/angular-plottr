@@ -1,6 +1,21 @@
 @if (plotLine) {
 <div class="plotline">
-  <div class="plotline-title">{{ plotLine.title }}</div>
+  <div class="plotline-title-container">
+    @if (isEditing) {
+    <div class="plotline-title">
+      <input
+        #plotlineTitleInput
+        class="plotline-input"
+        (blur)="editTitle()"
+        [formControl]="plotlineTitle"
+      />
+    </div>
+    } @else {
+    <div class="plotline-title" (click)="toggleEdit()">
+      {{ plotLine.title }}
+    </div>
+    }
+  </div>
 
   <div class="plotline-scenes-container" [style.color]="plotLine.color">
     @for (chapter of chapters; track chapter.id) {
@@ -22,7 +37,5 @@
     </div>
     }
   </div>
-
-  <div class="plotline-scenes-placeholder"></div>
 </div>
 }

@@ -127,6 +127,20 @@ export class PlottrLayoutComponent {
     ]);
   }
 
+  changePlotlineTitle(event: { plotline: PlotLine; title: string }): void {
+    const { plotline, title } = event;
+
+    this.plotLines.set([
+      ...this.plotLines().map((pl) => {
+        if (pl.id === plotline.id) {
+          return { ...pl, title };
+        }
+
+        return pl;
+      }),
+    ]);
+  }
+
   addSceneToPlotLine(event: { plotline: PlotLine; chapterId: string }): void {
     const { plotline, chapterId } = event;
     const sceneNumber = plotline.scenes[chapterId]?.length + 1 || 1;

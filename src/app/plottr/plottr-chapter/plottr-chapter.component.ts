@@ -25,14 +25,14 @@ export class PlottrChapterComponent {
   @Output() changeChapterTitle: EventEmitter<EditChapterTitleEvent> =
     new EventEmitter();
 
-  @ViewChild('charterTitleInput') charterTitleInput?: ElementRef;
+  @ViewChild('chapterTitleInput') chapterTitleInput?: ElementRef;
 
-  charterTitle = new FormControl('');
+  chapterTitle = new FormControl('');
 
   isEditing = false;
 
   ngOnInit(): void {
-    this.charterTitle.setValue(this.chapter?.title ?? '');
+    this.chapterTitle.setValue(this.chapter?.title ?? '');
   }
 
   toggleEdit(): void {
@@ -41,16 +41,16 @@ export class PlottrChapterComponent {
     if (this.isEditing) {
       // setTimeout() is used here to ensure that input is in the DOM before trying to focus on it.
       setTimeout(() => {
-        this.charterTitleInput?.nativeElement.focus();
+        this.chapterTitleInput?.nativeElement.focus();
       }, 1);
     }
   }
 
   editTitle(): void {
-    if (this.chapter && this.charterTitle.value) {
+    if (this.chapter && this.chapterTitle.value) {
       this.changeChapterTitle.emit({
         chapter: this.chapter,
-        title: this.charterTitle.value,
+        title: this.chapterTitle.value,
       });
     }
 

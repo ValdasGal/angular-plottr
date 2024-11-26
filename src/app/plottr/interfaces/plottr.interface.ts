@@ -28,3 +28,8 @@ export interface AddSceneEvent {
   plotline: PlotLine;
   chapterId: string;
 }
+
+export interface EditPlotlineTitleEvent {
+  plotline: PlotLine;
+  title: string;
+}

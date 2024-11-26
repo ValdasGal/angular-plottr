@@ -3,13 +3,26 @@
 .plotline {
   display: flex;
 
-  .plotline-title {
+  .plotline-title-container {
+    flex: 0 0 plottr.$plotline-width + (plottr.$element-padding * 2);
     position: sticky;
     left: 0;
-    flex: 0 0 plottr.$plotline-width;
-    padding: plottr.$element-padding;
-    background: plottr.$background-color;
     z-index: 1;
+    background: plottr.$background-color;
+    padding-top: plottr.$element-padding;
+
+    .plotline-title {
+      padding: plottr.$element-padding;
+      border: plottr.$border-style;
+
+      &:hover {
+        border: plottr.$hover-style;
+      }
+
+      .plotline-input {
+        width: plottr.$input-width;
+      }
+    }
   }
 
   .plotline-scenes-container {
@@ -59,10 +72,5 @@
         height: 40px;
       }
     }
-  }
-
-  .plotline-scenes-placeholder {
-    width: plottr.$chapter-width;
-    padding: plottr.$element-padding;
   }
 }

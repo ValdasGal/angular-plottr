@@ -8,6 +8,7 @@ import {
 import {
   AddSceneEvent,
   Chapter,
+  EditPlotlineTitleEvent,
   PlotLine,
 } from '@plottr/interfaces/plottr.interface';
 import { PlottrPlotlineComponent } from '@plottr/plottr-plotline/plottr-plotline.component';
@@ -24,6 +25,8 @@ export class PlottrPlotlinesComponent {
   @Input({ required: true }) chapters: Chapter[] = [];
   @Output() addScene: EventEmitter<AddSceneEvent> = new EventEmitter();
   @Output() addPlotLine: EventEmitter<string> = new EventEmitter();
+  @Output() changePlotlineTitle: EventEmitter<EditPlotlineTitleEvent> =
+    new EventEmitter();
 
   emitAddScene(event: AddSceneEvent): void {
     this.addScene.emit(event);
@@ -31,5 +34,9 @@ export class PlottrPlotlinesComponent {
 
   addNewPlotLine(): void {
     this.addPlotLine.emit(`Plotline ${this.plotLines.length + 1}`);
+  }
+
+  emitChangePlotlineTitle(event: EditPlotlineTitleEvent): void {
+    this.changePlotlineTitle.emit(event);
   }
 }
