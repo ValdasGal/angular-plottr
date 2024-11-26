@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { guidGenerator } from '@plottr/helper-functions/guid-generator';
+import {
+  getRandomColor,
+  guidGenerator,
+} from '@plottr/helper-functions/helper-functions';
 import {
   Chapter,
   EditChapterTitleEvent,
@@ -120,7 +123,7 @@ export class PlottrLayoutComponent {
   addPlotLine(title: string, scenes: Scenes = {}): void {
     this.plotLines.set([
       ...this.plotLines(),
-      { title, id: guidGenerator(), scenes },
+      { title, id: guidGenerator(), color: getRandomColor(), scenes },
     ]);
   }
 

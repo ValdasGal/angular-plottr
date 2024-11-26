@@ -6,6 +6,7 @@ export interface Chapter {
 export interface PlotLine {
   id: string;
   title: string;
+  color: string;
   scenes: Scenes;
 }
 
@@ -21,4 +22,9 @@ interface Scene {
 export interface EditChapterTitleEvent {
   chapter: Chapter;
   title: string;
+}
+
+export interface AddSceneEvent {
+  plotline: PlotLine;
+  chapterId: string;
 }

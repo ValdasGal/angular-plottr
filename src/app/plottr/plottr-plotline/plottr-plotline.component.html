@@ -1,0 +1,28 @@
+@if (plotLine) {
+<div class="plotline">
+  <div class="plotline-title">{{ plotLine.title }}</div>
+
+  <div class="plotline-scenes-container" [style.color]="plotLine.color">
+    @for (chapter of chapters; track chapter.id) {
+    <div class="plotline-scenes">
+      @if(plotLine.scenes?.[chapter.id]) { @for (scene of
+      plotLine.scenes?.[chapter.id]; track scene.id ) {
+      <div class="plotline-scene" [style.border-color]="plotLine.color">
+        {{ scene.title }}
+      </div>
+      } }
+
+      <button
+        class="add-scene"
+        (click)="emitAddScene(plotLine, chapter.id)"
+        [style.border-color]="plotLine.color"
+      >
+        + Add scene
+      </button>
+    </div>
+    }
+  </div>
+
+  <div class="plotline-scenes-placeholder"></div>
+</div>
+}

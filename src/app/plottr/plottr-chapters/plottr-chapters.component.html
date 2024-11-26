@@ -1,8 +1,8 @@
-<div class="plottr-chapters-container">
-  <div class="plottr-plotline-placeholder"></div>
+<div class="chapters-container">
+  <div class="plotline-placeholder"></div>
 
   <div
-    class="plottr-chapters"
+    class="chapters"
     cdkDropList
     cdkDropListOrientation="horizontal"
     (cdkDropListDropped)="dropChapter($event)"
@@ -13,9 +13,8 @@
       [chapter]="chapter"
       (changeChapterTitle)="emitChangeChapterTitle($event)"
     ></app-plottr-chapter>
-
     }
   </div>
 
-  <div class="plottr-add-chapter" (click)="addNewChapter()">+ Add new</div>
+  <button class="add-chapter" (click)="addNewChapter()">+ Add new</button>
 </div>

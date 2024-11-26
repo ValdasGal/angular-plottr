@@ -5,11 +5,16 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { Chapter, PlotLine } from '@plottr/interfaces/plottr.interface';
+import {
+  AddSceneEvent,
+  Chapter,
+  PlotLine,
+} from '@plottr/interfaces/plottr.interface';
+import { PlottrPlotlineComponent } from '@plottr/plottr-plotline/plottr-plotline.component';
 
 @Component({
   selector: 'app-plottr-plotlines',
-  imports: [],
+  imports: [PlottrPlotlineComponent],
   templateUrl: './plottr-plotlines.component.html',
   styleUrl: './plottr-plotlines.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -17,14 +22,11 @@ import { Chapter, PlotLine } from '@plottr/interfaces/plottr.interface';
 export class PlottrPlotlinesComponent {
   @Input({ required: true }) plotLines: PlotLine[] = [];
   @Input({ required: true }) chapters: Chapter[] = [];
-  @Output() addScene: EventEmitter<{
-    plotline: PlotLine;
-    chapterId: string;
-  }> = new EventEmitter();
+  @Output() addScene: EventEmitter<AddSceneEvent> = new EventEmitter();
   @Output() addPlotLine: EventEmitter<string> = new EventEmitter();
 
-  emitAddScene(plotline: PlotLine, chapterId: string): void {
-    this.addScene.emit({ plotline, chapterId });
+  emitAddScene(event: AddSceneEvent): void {
+    this.addScene.emit(event);
   }
 
   addNewPlotLine(): void {

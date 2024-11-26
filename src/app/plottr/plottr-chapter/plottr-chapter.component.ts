@@ -1,17 +1,29 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Chapter, EditChapterTitleEvent } from '@plottr/interfaces/plottr.interface';
+import {
+  Chapter,
+  EditChapterTitleEvent,
+} from '@plottr/interfaces/plottr.interface';
 
 @Component({
   selector: 'app-plottr-chapter',
   imports: [ReactiveFormsModule],
   templateUrl: './plottr-chapter.component.html',
   styleUrl: './plottr-chapter.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PlottrChapterComponent {
   @Input({ required: true }) chapter?: Chapter;
-  @Output() changeChapterTitle: EventEmitter<EditChapterTitleEvent> = new EventEmitter();
+  @Output() changeChapterTitle: EventEmitter<EditChapterTitleEvent> =
+    new EventEmitter();
 
   @ViewChild('charterTitleInput') charterTitleInput?: ElementRef;
 
@@ -36,7 +48,10 @@ export class PlottrChapterComponent {
 
   editTitle(): void {
     if (this.chapter && this.charterTitle.value) {
-      this.changeChapterTitle.emit({ chapter: this.chapter, title: this.charterTitle.value });
+      this.changeChapterTitle.emit({
+        chapter: this.chapter,
+        title: this.charterTitle.value,
+      });
     }
 
     this.toggleEdit();
