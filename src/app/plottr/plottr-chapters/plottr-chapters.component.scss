@@ -1,0 +1,26 @@
+@use "../styles/variables.scss" as plottr;
+
+.plottr-chapters-container {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: plottr.$background-color;
+  z-index: 1;
+
+  .plottr-plotline-placeholder {
+    position: sticky;
+    left: 0;
+    background: plottr.$background-color;
+    flex: 0 0 plottr.$plotline-width;
+    padding: plottr.$element-padding;
+  }
+
+  .plottr-add-chapter {
+    flex: 0 0 plottr.$chapter-width;
+    padding: plottr.$element-padding;
+
+    &:hover {
+      outline-style: dashed;
+    }
+  }
+}

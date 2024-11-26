@@ -1,0 +1,7 @@
+@if (isEditing) {
+<div class="plottr-chapter">
+  <input #charterTitleInput class="chapter-input"(blur)="editTitle()" [formControl]="charterTitle" />
+</div>
+} @else {
+<div class="plottr-chapter" (click)="toggleEdit()">{{ chapter?.title }}</div>
+}

@@ -1,0 +1,30 @@
+<div class="plotlines-container">
+  @for (plotLine of plotLines; track plotLine.id) {
+  <div class="plotline">
+    <div class="plotline-title">{{ plotLine.title }}</div>
+
+    <div class="plotline-scenes-container">
+      @for (chapter of chapters; track chapter.id) {
+      <div class="plotline-scenes">
+        @if(plotLine.scenes?.[chapter.id]) { @for (scene of
+        plotLine.scenes?.[chapter.id]; track scene.id ) {
+        <div class="plotline-scene">
+          {{ scene.title }}
+        </div>
+        } }
+
+        <button class="add-scene" (click)="emitAddScene(plotLine, chapter.id)">
+          + Add scene
+        </button>
+      </div>
+      }
+    </div>
+
+    <div class="plotline-scenes-placeholder"></div>
+  </div>
+
+  <div class="plotline">
+    <button (click)="addNewPlotLine()">+ Add new</button>
+  </div>
+  }
+</div>

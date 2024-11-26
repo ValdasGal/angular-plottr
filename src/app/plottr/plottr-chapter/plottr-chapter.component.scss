@@ -1,0 +1,15 @@
+@use "../styles/variables.scss" as plottr;
+
+.plottr-chapter {
+  width: plottr.$chapter-width;
+  padding: plottr.$element-padding;
+  cursor: pointer;
+
+  &:hover {
+    outline-style: dashed;
+  }
+
+  .chapter-input {
+    width: plottr.$input-width;
+  }
+}

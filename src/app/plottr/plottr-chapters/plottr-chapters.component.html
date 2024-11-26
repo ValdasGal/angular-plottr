@@ -1,0 +1,13 @@
+<div class="plottr-chapters-container">
+  <div class="plottr-plotline-placeholder"></div>
+
+  @for (chapter of chapters; track chapter.id) {
+  <app-plottr-chapter
+    [chapter]="chapter"
+    (changeChapterTitle)="emitChangeChapterTitle($event)"
+  ></app-plottr-chapter>
+
+  }
+
+  <div class="plottr-add-chapter" (click)="addNewChapter()">+ Add new</div>
+</div>

@@ -1,0 +1,29 @@
+@use "../styles/variables.scss" as plottr;
+
+.plotlines-container {
+  .plotline {
+    display: flex;
+
+    .plotline-title {
+      position: sticky;
+      left: 0;
+      flex: 0 0 plottr.$plotline-width;
+      padding: plottr.$element-padding;
+      background: plottr.$background-color;
+    }
+
+    .plotline-scenes-container {
+      display: flex;
+
+      .plotline-scenes {
+        width: plottr.$chapter-width;
+        padding: plottr.$element-padding;
+      }
+    }
+
+    .plotline-scenes-placeholder {
+      width: plottr.$chapter-width;
+      padding: plottr.$element-padding;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="plottr-container">
+  <app-plottr-chapters
+    [chapters]="chapters()"
+    (changeChapterTitle)="changeChapterTitle($event)"
+    (addChapter)="addChapter($event)"
+  ></app-plottr-chapters>
+
+  <app-plottr-plotlines
+    [plotLines]="plotLines()"
+    [chapters]="chapters()"
+    (addScene)="addSceneToPlotLine($event)"
+    (addPlotLine)="addPlotLine($event)"
+  ></app-plottr-plotlines>
+</div>
