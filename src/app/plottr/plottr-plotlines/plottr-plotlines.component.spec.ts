@@ -8,9 +8,8 @@ describe('PlottrPlotlinesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PlottrPlotlinesComponent]
-    })
-    .compileComponents();
+      imports: [PlottrPlotlinesComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PlottrPlotlinesComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,15 @@ describe('PlottrPlotlinesComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('#addNewPlotLine', () => {
+    it('should emit addPlotline event', () => {
+      spyOn(component.addPlotLine, 'emit');
+
+      component.addNewPlotLine();
+
+      expect(component.addPlotLine.emit).toHaveBeenCalledWith('Plotline 1');
+    });
   });
 });
